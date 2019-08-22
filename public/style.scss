@@ -1,0 +1,27 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 300px;
+  height: 500px;
+
+  .display {
+    height: 20%;
+    background-color: gray;
+  }
+
+  .num-pad {
+    height: 80%;
+    background-color: rgb(126, 87, 87);
+
+    .num-button {
+      cursor: pointer;
+      width: 25%;
+    }
+  }
+
+}
