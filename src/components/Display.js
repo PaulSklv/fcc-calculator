@@ -1,13 +1,24 @@
 import React from "react";
 import { connect } from 'react-redux';
 
-const Display = () => {
-  return <div>{parseInt(props.value.join(''))}</div>;
+const Display = (props) => {
+  return (
+    <div>
+      <div dangerouslySetInnerHTML = {{__html: props.result ?  props.currentValue + '=' + props.result : props.currentValue}} />
+      <div dangerouslySetInnerHTML = {{__html: props.result}} />
+    </div>
+  );
 };
 
 
 const mapStateToProps = state => {
-  return { value: state.value }
+  console.log(state.calculations.currentValue)
+  // console.log(state.calculations.currentValue.split("")[state.calculations.currentValue.split("").length - 1])
+  // console.log(state.calculations.currentResult)
+  return { 
+    currentValue: state.calculations.currentValue,
+    result: state.calculations.result
+ };
 }
 
 export default connect(mapStateToProps)(Display);
