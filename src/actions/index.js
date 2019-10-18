@@ -1,7 +1,7 @@
 import _ from "lodash";
 
 const isOperator = val => {
-  return !isNaN(val) || val === "." || val === "=";
+  return !isNaN(val) || val === "=" || val === 'AC';
 }
 
 // const regExp = /(\+|\-|\*|\/|\=|\.)/;
@@ -25,6 +25,11 @@ export const calculation = (value, currentValue, result) => {
         result: result,
         value: value
       }
+    }
+  }
+  else if(value === "AC") {
+    return {
+      type: "ALL_CLEAR"
     }
   }
   else {

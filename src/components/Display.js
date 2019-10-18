@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 const Display = (props) => {
   return (
-    <div>
-      <div dangerouslySetInnerHTML = {{__html: props.result ?  props.currentValue + '=' + props.result : props.currentValue}} />
+    <div id='display'>
+      <div dangerouslySetInnerHTML = {{__html: props.currentValue}} />
       <div dangerouslySetInnerHTML = {{__html: props.result}} />
     </div>
   );

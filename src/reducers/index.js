@@ -1,12 +1,16 @@
 import { combineReducers } from "redux";
 import { evaluate } from "mathjs";
 
+const isFloat = n => !!(n % 1);
+
 const originalState = {
   currentValue: "0",
   result: "",
   evaluated: false
 }
-const endsWithOperators = /(\+|\-|\*|\/)/;
+
+const endsWithOperators = /(\+|\-|\*|\/|\.)/;
+
 const calcReducer= (state = originalState, action) => {
   switch(action.type) {
     case 'HANDLE_NUMBERS':
@@ -40,10 +44,19 @@ const calcReducer= (state = originalState, action) => {
             currentValue: action.payload.currentValue + action.payload.value
           }
         }
+    case 'ALL_CLEAR':
+      return {
+        currentValue: "0",
+        result: "",
+        evaluated: false
+      }
     case 'EVALUATION':
+
       return {
         currentValue: action.payload.currentValue,
-        result: evaluate(action.payload.currentValue),
+        result: isFloat(evaluate(action.payload.currentValue)) ? 
+          Math.floor(evaluate(action.payload.currentValue) * 100000) / 100000 
+          : evaluate(action.payload.currentValue),
         evaluated: true
       }
     default:

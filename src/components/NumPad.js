@@ -91,7 +91,7 @@ const fifthRow = [
     keyValue: '96'
   },
   {
-    id: 'dot',
+    id: 'decimal',
     label: '.',
     keyValue: '110'
   },
