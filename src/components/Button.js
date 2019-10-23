@@ -7,19 +7,37 @@ const isOperator = val => {
 }
 
 
-const Button = props => {
-    return (
-      <div className="button-wrapper">
-        <button className={`num-button ${isOperator(props.value) ? null : "operator" }`} id={props.id} 
-                onClick={() => props.calculation(props.value, props.currentValue, props.result)}>{props.value}</button>
-      </div>
-    );
+class Button extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  componentDidMount() {
+    document.addEventListener("keydown", this.onKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.onKeyDown);
+  }
+
+  onKeyDown = e => {
+    if(e.keyCode == this.props.valueObj.keyValue) {
+      this.props.calculation(this.props.value, this.props.currentValue)
+    }
+  }
+    render() {
+      const {value, id, currentValue } = this.props;
+      return (
+        <div className="button-wrapper">
+          <div className={`num-button ${isOperator(value) ? null : "operator" }`} id={id}
+                  onClick={() => this.props.calculation(value, currentValue)}>{value}</div>
+        </div>
+      );
+  }
 };
 
 const mapStateToProps = state => {
   return {
-    currentValue: state.calculations.currentValue,
-    result: state.calculations.result
+    currentValue: state.calculations.currentValue
   };
 };
 

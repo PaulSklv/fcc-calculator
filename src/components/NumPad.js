@@ -1,6 +1,4 @@
 import React from 'react';
-import { clearDisplay, composeValues } from '../actions';
-import { connect } from 'react-redux';
 import Button from './Button';
 
 const firstRow = [
@@ -106,9 +104,9 @@ class NumPad extends React.Component {
 
   renderRow = row => {
     return row.map(button => {
-      const { id, label, onclick } = button;
+      const { id, label, keyValue } = button;
       return (
-        <Button id={id} value={label} />
+        <Button id={id} value={label} key={id} valueObj={button}/>
       );
     });
   }
