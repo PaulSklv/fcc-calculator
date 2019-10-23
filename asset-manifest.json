@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/fcc-calculator/static/js/main.3737a8d4.chunk.js",
+    "main.js.map": "/fcc-calculator/static/js/main.3737a8d4.chunk.js.map",
+    "runtime~main.js": "/fcc-calculator/static/js/runtime~main.d7b8dd08.js",
+    "runtime~main.js.map": "/fcc-calculator/static/js/runtime~main.d7b8dd08.js.map",
+    "static/js/2.3031b2bc.chunk.js": "/fcc-calculator/static/js/2.3031b2bc.chunk.js",
+    "static/js/2.3031b2bc.chunk.js.map": "/fcc-calculator/static/js/2.3031b2bc.chunk.js.map",
+    "index.html": "/fcc-calculator/index.html",
+    "precache-manifest.7e3c7d78f6831f6a344fb3c5756bd492.js": "/fcc-calculator/precache-manifest.7e3c7d78f6831f6a344fb3c5756bd492.js",
+    "service-worker.js": "/fcc-calculator/service-worker.js"
+  }
+}
